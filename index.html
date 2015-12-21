@@ -124,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/Hexo-GitHub/" style="font-size: 10px;">Hexo GitHub</a>
 					</div>
 				</section>
 				
@@ -230,13 +230,20 @@
       
           
         <p>This is the first time I write my own blog on my own site. I’m inspired by those who use <strong>Hexo</strong> to establish their own wonderful blog sites. Its flexibility and programmer-friendly paradigm deeply attracts me so that I decide to make a site of my own with Hexo.</p>
-<p>Hexo is a static blog framework written by a Taiwanese in <strong>NodeJS</strong> and then soon adopted by large amounts of people, especially programmers and technical geeks. Even those who have already got used ##to## other blog frameworks like <strong>WordPress</strong> also migrated to this brand new platform.</p>
+<p>Hexo is a static blog framework written by a Taiwanese in <strong>NodeJS</strong> and then soon adopted by large amounts of people, especially programmers and technical geeks. Even those who have already got used to other blog frameworks like <strong>WordPress</strong> also migrated to this brand new platform.</p>
 <p>This blog is about how to establish a Hexo blog site from scratch on <strong>Mac OS X El Capitan</strong>. Althogh there’re many similar passages available on the Internet, this one mainly focuses on the difficulties I’ve encountered.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Install_Git__28With_Administrator_Permission_and_Homebrew_29"><a href="#Install_Git__28With_Administrator_Permission_and_Homebrew_29" class="headerlink" title="Install Git (With Administrator Permission and Homebrew)"></a>Install Git (With <strong>Administrator Permission</strong> and <strong>Homebrew</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install git</span><br></pre></td></tr></table></figure>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Install_Git__28With_Administrator_Permission_and_Homebrew_29"><a href="#Install_Git__28With_Administrator_Permission_and_Homebrew_29" class="headerlink" title="Install Git (With Administrator Permission and Homebrew)"></a>Install Git (With <strong>Administrator Permission</strong> and <strong>Homebrew</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br></pre></td></tr></table></figure>
 <h3 id="Install_NodeJS"><a href="#Install_NodeJS" class="headerlink" title="Install NodeJS"></a>Install NodeJS</h3><blockquote>
 <p>Select a proper version and download the installation package from <a href="https://nodejs.org/en/download/stable/" target="_blank" rel="external">NodeJS Official Site</a></p>
 </blockquote>
-<h3 id="Install_Hexo"><a href="#Install_Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h3>
+<h3 id="Install_Hexo__28With_Administrator_Permission_29"><a href="#Install_Hexo__28With_Administrator_Permission_29" class="headerlink" title="Install Hexo (With Administrator Permission)"></a>Install Hexo (With <strong>Administrator Permission</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo -g</span><br></pre></td></tr></table></figure>
+<h2 id="Start_Hexo"><a href="#Start_Hexo" class="headerlink" title="Start Hexo"></a>Start Hexo</h2><p>Change to any directory where you want to put your blog. Then initiate a blog site with a customized name using</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;blog_name&gt;</span><br></pre></td></tr></table></figure>
+<p>Now we can see a directory with your specified name right at the current directory. Go into the blog directory and type in</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>Hexo server will be started on <strong>0.0.0.0</strong> at port <strong>4000</strong> by default. You can have a look by typing the address in a browser. You can terminate it by typing <strong>Ctrl-C</strong> in your <strong>Terminal</strong>.</p>
+<p>All Hexo-related configs are stored in <strong>_config.yml</strong>. The comments there are sufficient for you to understand the usage of each item.</p>
+
       
     </div>
     
@@ -245,6 +252,10 @@
       
 
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo-GitHub/">Hexo GitHub</a></li></ul>
+	</div>
+
       
       <div class="clearfix"></div>
     </div>
@@ -263,22 +274,23 @@
 
 
 
+
     
         <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
         <script>
-        var yiliaConfig = {
-        fancybox: true,
-        mathjax: true,
-        animate: true,
-        isHome: true,
-        isPost: false,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        open_in_new: false
-        }
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: true,
+            isPost: false,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
         </script>
-     
+        
 
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
@@ -344,49 +356,50 @@
 
 
 
+
     
         <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
         <script>
-        var yiliaConfig = {
-        fancybox: true,
-        mathjax: true,
-        animate: true,
-        isHome: true,
-        isPost: false,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        open_in_new: false
-        }
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: true,
+            isPost: false,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
         </script>
-     
+        
 
   
   
 </div>
       <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-      <div class="footer-left">
-        &copy; 2015 Lyndon Li
-      </div>
-        <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2015 Lyndon Li
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
         </div>
     </div>
-    <div class="visit">
-      <span id="busuanzi_container_site_pv" style='display:none'>
-        <span id="site-visit" >本站到访数: 
-        <span id="busuanzi_value_site_uv"></span>
-        </span>
-      </span>
-      <span id="busuanzi_container_page_pv" style='display:none'>
-        <span id="page-visit">, 本页阅读量: 
-        <span id="busuanzi_value_page_pv"></span>
-        </span>
-      </span>
-    </div>
-  </div>
 </footer>
     </div>
     
@@ -408,12 +421,12 @@
 <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
 
-<script>
-  var backgroundnum = 5;
-  var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+    <script>
+        var backgroundnum = 5;
+        var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
 
-  $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-</script>
+        $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+    </script>
 
 
 
@@ -440,8 +453,8 @@ MathJax.Hub.Queue(function() {
 
 
 <div class="scroll" id="scroll">
-<a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-<a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">

@@ -496,14 +496,14 @@ a {
     left: 0.5em;
     top: auto; /*In order to cover style in article.styl*/
     bottom: 10px;
-    background: rgba(255,255,255,0.7);
-    font-size: 1em;
-    font-weight: bold;
-    color: #808080;
     padding: 0.2em 0.4em;
     -webkit-border-radius: 6px;
     border-radius: 6px;
     border-style: outset;
+    background: rgba(255,255,255,0.7);
+    font-size: 1em;
+    font-weight: bold;
+    color: #808080;
   }
   #container #tocButton:hover {
     color: #88acdb;
@@ -513,15 +513,7 @@ a {
     display: none;
     z-index: 99;
     left: 0;
-    background: none;
-    font-size: 1em;
-    line-height: 1.25em;
-    -webkit-border-radius: 2.8%;
-    border-radius: 2.8%;
-    margin-left: 0;
     top: 38%;
-    padding: 10px;
-    padding-left: 0;
     bottom: 1em;
     height: auto;
     max-height: 58%;
@@ -530,19 +522,27 @@ a {
     min-width: 7em;
     max-width: 61.8%;
     overflow: auto;
+    margin-left: 0;
+    padding: 10px;
+    padding-left: 0;
+    -webkit-border-radius: 2.8%;
+    border-radius: 2.8%;
+    background: none;
+    font-size: 1em;
+    line-height: 1.25em;
   }
   #container .toc-article .toc-title {
     display: none;
   }
   #container .toc-article .toc {
-    padding: 0.4em;
+    padding: 0.5em;
   }
   #container .toc-article ol {
-    background: rgba(255,255,255,0.75);
+    margin: 0;
     padding: 0.5em;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    margin: 0;
+    background: rgba(255,255,255,0.75);
   }
   #container .toc-article ol ol {
     padding: 0.1em 0;
@@ -875,21 +875,21 @@ a {
   padding: 0 40px;
 }
 .search {
-  padding: 0;
+  width: 68%;
+  height: 18px;
   margin-top: 1px;
+  padding: 0;
   font-family: inherit;
   border: 2px solid transparent;
   border-bottom: 2px solid #d3d3d3;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  width: 68%;
   opacity: 0.2;
-  height: 18px;
   background: none;
 }
 .search:hover {
-  opacity: 1;
   border: 2px solid #d3d3d3;
+  opacity: 1;
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
@@ -897,7 +897,7 @@ a {
   z-index: 999;
   position: fixed;
   top: 61.8%;
-  right: 0px;
+  right: 0;
   text-align: center;
 }
 .scroll a {
@@ -925,18 +925,18 @@ a {
   position: fixed;
   left: 378px;
   top: 30px;
-  font-size: 0.9em;
   padding: 1px;
+  border: none;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.9em;
   font-weight: bold;
   color: #666;
   background: none;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   opacity: 0.32;
-  font-family: inherit;
   -webkit-appearance: none;
 }
 .hide-labels:hover {
@@ -955,9 +955,9 @@ a {
   font-size: 28px;
 }
 .post-nav-button .fa {
-  color: rgba(255,255,255,0.8);
   padding-top: 16px;
   padding-bottom: 16px;
+  color: rgba(255,255,255,0.8);
 }
 .post-nav-button a:hover {
   background: rgba(147,181,224,0.3);
@@ -1300,7 +1300,7 @@ a {
 .article-entry h2::before,
 .article-entry h2::after {
   content: " —— ";
-  font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font-family: Arial;
 }
 .article-entry h3 {
   margin: 0.5em auto;
@@ -1391,12 +1391,11 @@ a {
   background: none;
 }
 .article-meta {
-  width: 150px;
-  font-size: 14;
-  text-align: right;
   position: absolute;
   right: 0;
   top: 23px;
+  width: 150px;
+  font-size: 14;
   text-align: center;
   z-index: 1;
 }
@@ -1404,26 +1403,26 @@ a {
   color: #aaa;
 }
 .article-meta time:before {
-  color: #999;
+  margin-top: 0px;
+  margin-right: 4px;
   content: "\f073";
   font: 1em FontAwesome;
-  margin-right: 4px;
-  margin-top: 0px;
+  color: #999;
 }
 .article-more-link {
-  margin-top: 5px;
   float: right;
+  margin-top: 5px;
 }
 .article-more-link a {
-  background: #88acdb;
-  color: #fff;
-  font-size: 0.9em;
   padding: 2px 4px;
-  line-height: 1em;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;
+  background: #88acdb;
+  color: #fff;
+  font-size: 0.9em;
+  line-height: 1em;
   -webkit-transition: background 0.3s;
   -moz-transition: background 0.3s;
   -ms-transition: background 0.3s;
@@ -1456,10 +1455,10 @@ a {
   color: #4d4d4d;
 }
 #article-nav-older {
-  text-align: right;
   padding-right: 1em;
+  text-align: right;
 }
-#article-nav-older:after {
+#article-nav-older::after {
   padding-left: 0.5em;
   content: "→";
   color: #fff;
@@ -1467,10 +1466,10 @@ a {
   font-family: Calibri;
 }
 #article-nav-newer {
-  text-align: left;
   padding-left: 1em;
+  text-align: left;
 }
-#article-nav-newer:before {
+#article-nav-newer::before {
   padding-right: 0.5em;
   content: "←";
   color: #fff;
@@ -1502,6 +1501,7 @@ li:hover {
 }
 #tocButton {
   position: fixed;
+  border: none;
   left: 220px;
   top: 382px;
   background: none;
@@ -1509,7 +1509,6 @@ li:hover {
   font-weight: bold;
   color: #d3d3d3;
   cursor: pointer;
-  border: none;
   font-family: inherit;
   outline: none; /*Remove button border when clicked.*/
   -webkit-appearance: none; /*Remove iOS button style*/
@@ -1519,20 +1518,20 @@ li:hover {
 }
 .toc-article {
   position: fixed;
-  left: 0;
-  -webkit-border-radius: 2.8%;
-  border-radius: 2.8%;
-  margin-left: 0em;
-  padding: 6px 10px 10px 50px;
   width: 230px;
   top: 378px;
   bottom: 1em;
+  left: 0;
+  margin-left: 0em;
+  padding: 6px 10px 10px 50px;
+  -webkit-border-radius: 2.8%;
+  border-radius: 2.8%;
   overflow: auto;
 }
 #toc {
-  line-height: 1.65em;
-  font-size: 0.9em;
   float: right;
+  font-size: 0.9em;
+  line-height: 1.65em;
 }
 #toc a {
   color: #808080;
@@ -1573,19 +1572,19 @@ li:hover {
 }
 .copyright {
   width: 85%;
-  margin: 0 auto;
   max-width: 45em;
-  word-break: break-word;
+  margin: 0 auto;
+  padding: 0.5em 1.8em;
+  border: 1px solid #d3d3d3;
   font-size: 0.93em;
   line-height: 1.6em;
-  padding: 0.5em 1.8em;
+  word-break: break-word;
   background: rgba(255,255,255,0.4);
-  border: 1px solid #d3d3d3;
 }
 .copyright span {
+  margin-right: 1em;
   color: #b5b5b5;
   font-weight: bold;
-  margin-right: 1em;
 }
 .copyright a {
   color: #808080;

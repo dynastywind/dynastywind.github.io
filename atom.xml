@@ -3,9 +3,9 @@
   <title><![CDATA[Dynastywind]]></title>
   <subtitle><![CDATA[Sapientia Et Virtus]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
+  <link href="http://blog.lyndonli.com/"/>
   <updated>2015-12-22T15:40:32.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://blog.lyndonli.com/</id>
   
   <author>
     <name><![CDATA[Lyndon Li]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[Establish Hexo with GitHub]]></title>
-    <link href="http://yoursite.com/2015/12/21/Establish-Hexo-with-GitHub/"/>
-    <id>http://yoursite.com/2015/12/21/Establish-Hexo-with-GitHub/</id>
+    <link href="http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/"/>
+    <id>http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/</id>
     <published>2015-12-21T12:24:38.000Z</published>
     <updated>2015-12-22T15:40:32.000Z</updated>
     <content type="html"><![CDATA[<p>This is the first time I write my own blog on my own site. I’m inspired by those who use <strong>Hexo</strong> to establish their own wonderful blog sites. Its flexibility and programmer-friendly paradigm deeply attracts me so that I decide to make a site of my own with Hexo.<br><a id="more"></a></p>
@@ -66,16 +66,16 @@
     
     </summary>
     
-      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+      <category term="GitHub" scheme="http://blog.lyndonli.com/tags/GitHub/"/>
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://blog.lyndonli.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hello World]]></title>
-    <link href="http://yoursite.com/2015/12/14/hello-world/"/>
-    <id>http://yoursite.com/2015/12/14/hello-world/</id>
+    <link href="http://blog.lyndonli.com/2015/12/14/hello-world/"/>
+    <id>http://blog.lyndonli.com/2015/12/14/hello-world/</id>
     <published>2015-12-14T15:23:47.000Z</published>
     <updated>2015-12-14T15:23:47.000Z</updated>
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>

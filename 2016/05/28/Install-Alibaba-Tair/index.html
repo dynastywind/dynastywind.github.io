@@ -9,18 +9,18 @@
 
   <meta charset="utf-8">
   
-  <title>about | Dynastywind</title>
+  <title>Install Alibaba Tair | Dynastywind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A Junior Java Engineer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://blog.lyndonli.com/about/index.html">
+  <meta name="description" content="This passage mainly introduces how to install Tair, Alibaba’s own distributed key-value storage system. Because of several errors existing in Tair’s source code and out-of-date introduction documentat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Alibaba Tair">
+<meta property="og:url" content="http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/index.html">
 <meta property="og:site_name" content="Dynastywind">
-<meta property="og:description" content="A Junior Java Engineer">
-<meta property="og:updated_time" content="2015-12-22T16:46:47.000Z">
+<meta property="og:description" content="This passage mainly introduces how to install Tair, Alibaba’s own distributed key-value storage system. Because of several errors existing in Tair’s source code and out-of-date introduction documentat">
+<meta property="og:updated_time" content="2016-05-28T12:54:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="A Junior Java Engineer">
+<meta name="twitter:title" content="Install Alibaba Tair">
+<meta name="twitter:description" content="This passage mainly introduces how to install Tair, Alibaba’s own distributed key-value storage system. Because of several errors existing in Tair’s source code and out-of-date introduction documentat">
   
     <link rel="alternative" href="/atom.xml" title="Dynastywind" type="application/atom+xml">
   
@@ -49,7 +49,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -282,11 +282,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Install-Alibaba-Tair" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2015-12-22T14:30:30.000Z" itemprop="datePublished">2015-12-22</time>
+      <a href="/2016/05/28/Install-Alibaba-Tair/" class="article-date">
+      <time datetime="2016-05-28T12:54:35.000Z" itemprop="datePublished">2016-05-28</time>
 </a>
     </div>
   
@@ -299,7 +299,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      Install Alibaba Tair
     </h1>
   
 
@@ -307,8 +307,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Technology/">Technology</a><a class="article-category-link" href="/categories/Technology/Blog/">Blog</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Alibaba-Tair/">Alibaba Tair</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Installation-Guide/">Installation Guide</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -316,36 +324,109 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>This passage mainly introduces how to install <strong>Tair</strong>, Alibaba’s own distributed key-value storage system. Because of several errors existing in Tair’s source code and out-of-date introduction documentation, we may get into trouble when installing and deploying this system in our own environment. I’ve successfully installed it on my CentOS 7 and will show the whole process here, wishing it can help those who has trapped into a dilemma.<br><a id="more"></a></p>
+<p><br></p>
+<p><a href="https://github.com/alibaba/tair" target="_blank" rel="external">Tair</a> is a distributed key-value storage system delveloped by Alibaba’s Taobao team, the biggest e-commerce platform in China. Tair focuses more on distributed storage and offers features like fault tolerance, pluggable storage, etc. More information can be found <a href="https://github.com/alibaba/tair/blob/master/README" target="_blank" rel="external">here</a>.</p>
+<p><br></p>
+<p>Tair is written in C++. Like other C++ programs, it needs to be compiled using different platforms’ compilers before it can be run on corresponding platforms. However, the introduction documentation on the official site is kind of out-of-date and there are some bugs residing in the source code. Hence, installing Tair may be a troublesome work. For me, I solved these problems after several trying and am willing to share my experience with others who’s planning to install it and have a try. Perhaps there may be some little differences on different <strong>Linux platforms</strong> (What? You’re using <strong>Windows</strong>? Come on! Serious?), the general process is the same.</p>
+<p><br></p>
+<h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>I deploy Tair on <strong>CentOS 7</strong>. You may choose other Linux distributions but it must be a Linux since Tair uses some Linux-only libraries like <strong>epoll</strong>. Otherwise you’ll need to do a source code porting first, which can be difficult and time-consuming.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><strong>I.</strong> Install <strong>svn</strong>, <strong>g++</strong>, <strong>automake</strong>, <strong>libtool</strong>, <strong>boost-devel</strong> and <strong>zlib-devel</strong> before you proceed to compile Tair and its supporting libraries. You can use a software package management tool on your platform to facilitate your installation, like <strong>yum</strong> on <strong>CentOS</strong>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install svn gcc-c++ automake libtool boost-devel zlib-devel -y</span><br></pre></td></tr></table></figure>
+<p>You may need to add <strong>sudo</strong> in front of the <strong>yum</strong> command for system permission.</p>
+<p><strong>II.</strong> Download the source code of Tair’s supporting libraries <strong>tbsys</strong> and <strong>tbnet</strong>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn checkout http://code.taobao.org/svn/tb-common-utils/trunk/ tb-common-utils</span><br></pre></td></tr></table></figure>
+<p><strong>III.</strong> Modify <strong>CLogger::CLogger&amp;</strong> to <strong>CLogger&amp;</strong> in the <strong>tblog.cpp</strong> file (You may skip this step if this bug has been corrected).</p>
+<p><strong>IV.</strong> Download Tair’s source code.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn checkout http://code.taobao.org/svn/tair/trunk/ tair</span><br></pre></td></tr></table></figure>
+<p>Beware that there do exist a <strong>space</strong> between the last “/“ and last <strong>tair</strong> in the above url. This is <strong>definitely not a typo</strong>! And you should use <strong>svn</strong> to get this source code instead of cloning its Github repository. The latter one contains some problems (at least before I write this passage).</p>
+<p><strong>V.</strong> Configure and make the supporting libraries. First you need to export <strong>TBLIB_ROOT</strong> to tell the script where you want to put the generated libraries. These libraries will be used in Tair’s compilation later.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> TBLIB_ROOT=/your/path/to/tair-lib</span><br></pre></td></tr></table></figure>
+<p>Then you can configure and make it using the provided <strong>build.sh</strong> script. If everything is OK, you will see the genearted libraries have now existed in the directory where <strong>TBLIB_ROOT</strong> points to.</p>
+<p><strong>VI.</strong> Go to your Tair’s source code directory, make and install Tair as below.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./bootstrap.sh</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+<p>Now you’ll see a directory called <strong>tair_bin</strong> locating at your user’s directory. That’s where tair’s binary code resides. Congratulations!</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Now you have a runnable Tair on your machine. But in order to run your Tair, you still need to configure your Tair first. For this part, you can refer to <a href="http://code.taobao.org/p/tair/wiki/deploy/" target="_blank" rel="external">this official documentation</a>. Good luck!</p>
 
-
-          
-        <h2 id="A-Junior-Java-Engineer"><a href="#A-Junior-Java-Engineer" class="headerlink" title="A Junior Java Engineer"></a>A Junior Java Engineer</h2>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/05/28/Install-Alibaba-Tair/">Install Alibaba Tair</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
+        <p><span>发布时间:</span>2016-05-28, 21:54:35</p>
+        <p><span>最后更新:</span>2016-05-28, 21:54:35</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/28/Install-Alibaba-Tair/" title="Install Alibaba Tair">http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/04/香港记忆/">
+                    香港记忆
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment"><span class="toc-number">1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">2.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
 
 
 
@@ -363,7 +444,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"about　| Dynastywind　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Install Alibaba Tair　| Dynastywind　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -394,6 +475,24 @@
 </section>
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/04/香港记忆/" title="下一篇: 香港记忆">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/Install-Alibaba-Tair/">Install Alibaba Tair</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/香港记忆/">香港记忆</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/21/Establish-Hexo-with-GitHub/">Establish Hexo with GitHub</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/15/hello-world/">Hello World</a></li></ul>
 
 
 

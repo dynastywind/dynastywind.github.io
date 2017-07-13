@@ -12,6 +12,7 @@
   <title>Install Alibaba Tair | Dynastywind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="This passage mainly introduces how to install Tair, Alibaba’s own distributed key-value storage system. Because of several errors existing in Tair’s source code and out-of-date introduction documentat">
+<meta name="keywords" content="Alibaba Tair,Installation Guide">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install Alibaba Tair">
 <meta property="og:url" content="http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/index.html">
@@ -124,13 +125,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -280,7 +281,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-Install-Alibaba-Tair" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -332,19 +333,19 @@
 <p><br></p>
 <h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><p>I deploy Tair on <strong>CentOS 7</strong>. You may choose other Linux distributions but it must be a Linux since Tair uses some Linux-only libraries like <strong>epoll</strong>. Otherwise you’ll need to do a source code porting first, which can be difficult and time-consuming.</p>
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p><strong>I.</strong> Install <strong>svn</strong>, <strong>g++</strong>, <strong>automake</strong>, <strong>libtool</strong>, <strong>boost-devel</strong> and <strong>zlib-devel</strong> before you proceed to compile Tair and its supporting libraries. You can use a software package management tool on your platform to facilitate your installation, like <strong>yum</strong> on <strong>CentOS</strong>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install svn gcc-c++ automake libtool boost-devel zlib-devel -y</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yum install svn gcc-c++ automake libtool boost-devel zlib-devel -y</div></pre></td></tr></table></figure>
 <p>You may need to add <strong>sudo</strong> in front of the <strong>yum</strong> command for system permission.</p>
 <p><strong>II.</strong> Download the source code of Tair’s supporting libraries <strong>tbsys</strong> and <strong>tbnet</strong>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn checkout http://code.taobao.org/svn/tb-common-utils/trunk/ tb-common-utils</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn checkout http://code.taobao.org/svn/tb-common-utils/trunk/ tb-common-utils</div></pre></td></tr></table></figure>
 <p><strong>III.</strong> Modify <strong>CLogger::CLogger&amp;</strong> to <strong>CLogger&amp;</strong> in the <strong>tblog.cpp</strong> file (You may skip this step if this bug has been corrected).</p>
 <p><strong>IV.</strong> Download Tair’s source code.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ svn checkout http://code.taobao.org/svn/tair/trunk/ tair</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ svn checkout http://code.taobao.org/svn/tair/trunk/ tair</div></pre></td></tr></table></figure>
 <p>Beware that there do exist a <strong>space</strong> between the last “/“ and last <strong>tair</strong> in the above url. This is <strong>definitely not a typo</strong>! And you should use <strong>svn</strong> to get this source code instead of cloning its Github repository. The latter one contains some problems (at least before I write this passage).</p>
 <p><strong>V.</strong> Configure and make the supporting libraries. First you need to export <strong>TBLIB_ROOT</strong> to tell the script where you want to put the generated libraries. These libraries will be used in Tair’s compilation later.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> TBLIB_ROOT=/your/path/to/tair-lib</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> TBLIB_ROOT=/your/path/to/tair-lib</div></pre></td></tr></table></figure>
 <p>Then you can configure and make it using the provided <strong>build.sh</strong> script. If everything is OK, you will see the genearted libraries have now existed in the directory where <strong>TBLIB_ROOT</strong> points to.</p>
 <p><strong>VI.</strong> Go to your Tair’s source code directory, make and install Tair as below.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./bootstrap.sh</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ./bootstrap.sh</div><div class="line">$ ./configure</div><div class="line">$ make</div><div class="line">$ make install</div></pre></td></tr></table></figure>
 <p>Now you’ll see a directory called <strong>tair_bin</strong> locating at your user’s directory. That’s where tair’s binary code resides. Congratulations!</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Now you have a runnable Tair on your machine. But in order to run your Tair, you still need to configure your Tair first. For this part, you can refer to <a href="http://code.taobao.org/p/tair/wiki/deploy/" target="_blank" rel="external">this official documentation</a>. Good luck!</p>
 
@@ -355,17 +356,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/05/28/Install-Alibaba-Tair/">Install Alibaba Tair</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Lyndon Li</a></p>
-        <p><span>Created:</span>2016-05-28, 21:54:35</p>
-        <p><span>Updated:</span>2016-05-28, 21:54:35</p>
+        <p><span>本文标题:</span><a href="/2016/05/28/Install-Alibaba-Tair/">Install Alibaba Tair</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
+        <p><span>发布时间:</span>2016-05-28, 21:54:35</p>
+        <p><span>最后更新:</span>2016-05-28, 21:54:35</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/05/28/Install-Alibaba-Tair/" title="Install Alibaba Tair">http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/</a>
-            <span class="copy-path" data-clipboard-text="From http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/　　By Lyndon Li" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/28/Install-Alibaba-Tair/" title="Install Alibaba Tair">http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2016/05/28/Install-Alibaba-Tair/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -392,7 +393,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment"><span class="toc-number">1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">2.</span> <span class="toc-text">Installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">3.</span> <span class="toc-text">Conclusion</span></a></li></ol>
 </div>
 <style>
@@ -404,10 +405,10 @@
     }
 </style>
 
-<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 <script>
-    var valueHide = "Hide";
-    var valueShow = "Show";
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -486,15 +487,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/18/Hot-Swapping-Java-Class-File-During-Runtime/" title="Pre: Hot-Swapping Java Class File During Runtime">
+            <a href="/2016/07/18/Hot-Swapping-Java-Class-File-During-Runtime/" title="上一篇: Hot-Swapping Java Class File During Runtime">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/04/香港记忆/" title="Next: 香港记忆">
+            <a href="/2016/03/04/香港记忆/" title="下一篇: 香港记忆">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -514,17 +515,17 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2015-2016 Lyndon Li
+                2015-2017 Lyndon Li
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >Site Visitors: 
+                        <span id="site-visit" >本站到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -534,7 +535,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">Page Hits: 
+                        <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -580,9 +581,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

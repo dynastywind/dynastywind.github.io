@@ -12,6 +12,7 @@
   <title>Establish Hexo with GitHub | Dynastywind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="This is the first time I write my own blog on my own site. I’m inspired by those who use Hexo to establish their own wonderful blog sites. Its flexibility and programmer-friendly paradigm deeply attra">
+<meta name="keywords" content="Hexo,GitHub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Establish Hexo with GitHub">
 <meta property="og:url" content="http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/index.html">
@@ -124,13 +125,13 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
+                        <li>菜单</li>
+                        <li>标签</li>
                         
-                        <li>Friends</li>
+                        <li>友情链接</li>
                         
                         
-                        <li>About Me</li>
+                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -280,7 +281,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap"><article id="post-Establish-Hexo-with-GitHub" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -327,38 +328,38 @@
         <p>This is the first time I write my own blog on my own site. I’m inspired by those who use <strong>Hexo</strong> to establish their own wonderful blog sites. Its flexibility and programmer-friendly paradigm deeply attracts me so that I decide to make a site of my own with Hexo.<br><a id="more"></a></p>
 <p>Hexo is a static blog framework written by a Taiwanese in <strong>NodeJS</strong> and then soon adopted by large amounts of people, especially programmers and technical geeks. Even those who have already got used to other blog frameworks like <strong>WordPress</strong> also migrated to this brand new platform.</p>
 <p>This blog is about how to establish a Hexo blog site from scratch on <strong>Mac OS X El Capitan</strong>. Althogh there’re many similar passages available on the Internet, this one mainly focuses on the difficulties I’ve encountered.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Install-Git-With-Administrator-Permission-and-Homebrew"><a href="#Install-Git-With-Administrator-Permission-and-Homebrew" class="headerlink" title="Install Git (With Administrator Permission and Homebrew)"></a>Install Git (With <strong>Administrator Permission</strong> and <strong>Homebrew</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install git</span><br></pre></td></tr></table></figure>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Install-Git-With-Administrator-Permission-and-Homebrew"><a href="#Install-Git-With-Administrator-Permission-and-Homebrew" class="headerlink" title="Install Git (With Administrator Permission and Homebrew)"></a>Install Git (With <strong>Administrator Permission</strong> and <strong>Homebrew</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git</div></pre></td></tr></table></figure>
 <h3 id="Install-NodeJS"><a href="#Install-NodeJS" class="headerlink" title="Install NodeJS"></a>Install NodeJS</h3><blockquote>
 <p>Select a proper version and download the installation package from <a href="https://nodejs.org/en/download/stable/" target="_blank" rel="external">NodeJS Official Site</a></p>
 </blockquote>
-<h3 id="Install-Hexo-With-Administrator-Permission"><a href="#Install-Hexo-With-Administrator-Permission" class="headerlink" title="Install Hexo (With Administrator Permission)"></a>Install Hexo (With <strong>Administrator Permission</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo -g</span><br></pre></td></tr></table></figure>
+<h3 id="Install-Hexo-With-Administrator-Permission"><a href="#Install-Hexo-With-Administrator-Permission" class="headerlink" title="Install Hexo (With Administrator Permission)"></a>Install Hexo (With <strong>Administrator Permission</strong>)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo -g</div></pre></td></tr></table></figure>
 <h2 id="Start-Hexo"><a href="#Start-Hexo" class="headerlink" title="Start Hexo"></a>Start Hexo</h2><p>Change to any directory where you want to put your blog. Then initiate a blog site with a customized name using</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init <span class="string">"blog_name"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init <span class="string">"blog_name"</span></div></pre></td></tr></table></figure>
 <p>Now we can see a directory with your specified name right at the current directory. Go into the blog directory and type in</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
 <p>Hexo server will be started on <strong>0.0.0.0</strong> at port <strong>4000</strong> by default. You can have a look by typing the address in a browser. You can terminate it by typing <strong>Ctrl-C</strong> in your <strong>Terminal</strong>.</p>
 <p>All Hexo-related configs are stored in <strong>_config.yml</strong> (If you’re not familiar with <strong>yml</strong>, you can just regard it as a simplified version of <strong>json</strong>). The comments there are sufficient for you to understand the usage of each item.</p>
 <p>If you’d like to create your own post now, you can type in</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"post_name"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"post_name"</span></div></pre></td></tr></table></figure>
 <p>Then restart the server as before. Now you can see your new post on your blog site.</p>
 <p>If you want to know more about Hexo’s commands (Eg. shorthand of commands), simpliy type in</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> hexo <span class="built_in">help</span></span></div></pre></td></tr></table></figure>
 <p>in your <strong>Terminal</strong>. Then help messages will pop out. If this is not enough, you can visit <a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo’s Official Documents</a> for more information.</p>
 <h2 id="Link-with-GitHub"><a href="#Link-with-GitHub" class="headerlink" title="Link with GitHub"></a>Link with GitHub</h2><p>It’s necessary for you to have a GitHub account before you can proceed further. Since it’s simple to get a new account on GitHub, I’ll omit the process and suppose that you now have a GitHub account and its name is <em>xxx</em>.</p>
 <h3 id="Create-a-New-GitHub-Repository"><a href="#Create-a-New-GitHub-Repository" class="headerlink" title="Create a New GitHub Repository"></a>Create a New GitHub Repository</h3><p>Login to your GitHub account and create a new repository called <strong>xxx.github.io</strong>. The notation <strong>xxx</strong> here refers to your GitHub account name above.</p>
 <h3 id="Config-Hexo"><a href="#Config-Hexo" class="headerlink" title="Config Hexo"></a>Config Hexo</h3><p>Edit <strong>_config.yml</strong> file under your Hexo directory. Find and change corresponding line as below.</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:xxx/xxx.github.io.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">  <span class="attribute">type</span>: git</div><div class="line">  <span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:xxx/xxx.github.io.git</div><div class="line">  <span class="attribute">branch</span>: master</div></pre></td></tr></table></figure>
 <h3 id="RSA-Key-Pair-Generation"><a href="#RSA-Key-Pair-Generation" class="headerlink" title="RSA Key Pair Generation"></a>RSA Key Pair Generation</h3><p>To successfully connect to the GitHub server via SSH, you need an <strong>RSA key pair</strong> for authorization purpose. It’s quite easy to accomplish on Mac since almost all of modern Macs have already installed tools we need. Open a <strong>Terminal</strong> and type in below commands.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"any_comment eg. your email address"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"any_comment eg. your email address"</span></div></pre></td></tr></table></figure>
 <p>Then all the way hit <strong>enter</strong> to apply default settings during the key generation process. During this process, you may be asked to set a password to protect your key pair. You can either ignore it by just hitting <strong>enter</strong> or input a customized password and then hit <strong>enter</strong>.</p>
 <p>If everything works fine, you will find a key pair has been generated under <em>~/.ssh/</em> directory. Open <em>id_rsa.pub</em> with an editor and copy the contents in this file.</p>
 <p>Login to your GitHub account and under your <strong>Account Settings</strong> select <strong>SSH Keys</strong>. Then you just need to enter a customized title for your key and paste what you’ve copied below the title. <strong>Done!</strong></p>
 <p>To test your connection with GitHub, type in below command in your <strong>Terminal</strong>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <p>If you’ve set a password before, you’ll be asked to enter the password to allow the program to read the protected private key.</p>
 <p>If everything is OK, now a connection success message will prompt out.</p>
 <h3 id="Deploy-Hexo"><a href="#Deploy-Hexo" class="headerlink" title="Deploy Hexo"></a>Deploy Hexo</h3><p>As long as your connection with GitHub is OK, you can just type in below command within your blog directory to deploy your local site to GitHub every time.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>A <strong>Deployment done: git</strong> information will pop out on your <strong>Terminal</strong>. To double verify it, you can find that your site has been published at <em><a href="https://xxx.github.io" target="_blank" rel="external">https://xxx.github.io</a></em> on <em>GitHub Pages</em> tab under your site’s <em>Repository Settings</em>.</p>
 <h2 id="Link-Your-Domain"><a href="#Link-Your-Domain" class="headerlink" title="Link Your Domain"></a>Link Your Domain</h2><p>So far you can reach your own blog site through <em><a href="https://xxx.github.io" target="_blank" rel="external">https://xxx.github.io</a></em> address. But it’s always better to have your own domain name linked with your blog site so that you can access your site directly via your own domain (I suppose you’ve already had your own domain. If not, please google it first and config your domain. Believe me, it’s quite easy).</p>
 <p>To accomplish it, you only need to modify <strong>CNAME</strong> file under your blog site’s <strong>source</strong> directory by <strong>adding your domain name into this file</strong>.</p>
@@ -368,15 +369,15 @@
 <p>Here I want to introduce two plugins and one theme that I’ve used in my own blog.</p>
 <h3 id="Theme-Yelee"><a href="#Theme-Yelee" class="headerlink" title="Theme: Yelee"></a>Theme: Yelee</h3><p>There’re many themes available on <a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo’s official site</a>. One of which I’m fond of is desinged by a Chinese front-end developer <strong>MOxFIVE</strong> and it’s called <strong>Yelee</strong>. Its elegant and modern design have conquered me completely. You can check it <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">here</a>. </p>
 <h3 id="Plugin-Hexo-generator-feed"><a href="#Plugin-Hexo-generator-feed" class="headerlink" title="Plugin: Hexo-generator-feed"></a>Plugin: Hexo-generator-feed</h3><p>It’s a plugin written in NodeJS to help you generate <strong>RSS</strong> for your site. Basically it’s convenient to install this plugin with <em>npm install</em> command and config it in your site’s <em>_config.yml</em> file like below.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">plugins:</span></span><br><span class="line"><span class="bullet">-</span> hexo-generator-feed</span><br><span class="line"></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">	type: atom</span><br><span class="line">	path: atom.xml</span><br><span class="line">	limit: <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="attr">plugins:</span></div><div class="line"><span class="bullet">-</span> <span class="string">hexo-generator-feed</span></div><div class="line"></div><div class="line"><span class="attr">feed:</span></div><div class="line">	<span class="attr">type:</span> <span class="string">atom</span></div><div class="line">	<span class="attr">path:</span> <span class="string">atom.xml</span></div><div class="line">	<span class="attr">limit:</span> <span class="number">20</span></div></pre></td></tr></table></figure>
 <p>Most tutorials on the Internet which introduce the installation of Hexo’s RSS tool tell you that that’s all you need to do to generate your site’s RSS feed. But acutally it’s not the case for me. If you deploy your site after above operations, you probably can’t see what you desire. Your feed won’t appear at <em>your_site/atom.xml</em> in this way.</p>
 <p>To solve this problem, you need to add your Hexo plugin into your site’s <strong>package.json</strong> file and put it under <em>dependencies</em> item like this.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">	"hexo-generator-feed": "^1.0.3"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"dependencies": &#123;</div><div class="line">	"hexo-generator-feed": "^1.0.3"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>You need to find your plugin’s version manually. Usually it’s the same as its latest version on GitHub if you install it with <em>npm</em> lately.</p>
 <p>Besides, the original <em>package.json</em> file is <strong>read-only</strong> for other users except for its <strong>owner</strong>. And, of course, you are not its owner by default. So in order to make a change on this file, you may have to change its owner to you first with <em>chown</em> command.</p>
 <p>Now regenerate your site and deploy it again, you will find your RSS feed has been generated successfully.</p>
 <h3 id="Plugin-Hexo-generator-sitemap"><a href="#Plugin-Hexo-generator-sitemap" class="headerlink" title="Plugin: Hexo-generator-sitemap"></a>Plugin: Hexo-generator-sitemap</h3><p>It’s also a NodeJS plugin but aimes to generate a sitemap for you. The installation process is analogous with Hexo’s feed plugin except that it doesn’t need to modify your <em>package.json</em> file but only needs to add it into your site’s <em>_config.yml</em> file like below.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">plugins:</span></span><br><span class="line"><span class="bullet">-</span> hexo-generator-sitemap</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">plugins:</span></div><div class="line"><span class="bullet">-</span> <span class="string">hexo-generator-sitemap</span></div></pre></td></tr></table></figure>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>That’s all for what I want to say about Hexo. I’m still new here and I’m continuing my exploration on Hexo. I wish you, who have or haven’t seen this passage, all the best in establishing your own Hexo blog sites and be excited on what you’ve acheived.</p>
 
       
@@ -386,17 +387,17 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2015/12/21/Establish-Hexo-with-GitHub/">Establish Hexo with GitHub</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage">Lyndon Li</a></p>
-        <p><span>Created:</span>2015-12-21, 20:24:38</p>
-        <p><span>Updated:</span>2016-03-04, 22:35:41</p>
+        <p><span>本文标题:</span><a href="/2015/12/21/Establish-Hexo-with-GitHub/">Establish Hexo with GitHub</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
+        <p><span>发布时间:</span>2015-12-21, 20:24:38</p>
+        <p><span>最后更新:</span>2016-03-04, 22:35:41</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2015/12/21/Establish-Hexo-with-GitHub/" title="Establish Hexo with GitHub">http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/</a>
-            <span class="copy-path" data-clipboard-text="From http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/　　By Lyndon Li" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/12/21/Establish-Hexo-with-GitHub/" title="Establish Hexo with GitHub">http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2015/12/21/Establish-Hexo-with-GitHub/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -423,7 +424,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Contents</strong>
+    <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">1.</span> <span class="toc-text">Installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Git-With-Administrator-Permission-and-Homebrew"><span class="toc-number">1.1.</span> <span class="toc-text">Install Git (With Administrator Permission and Homebrew)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-NodeJS"><span class="toc-number">1.2.</span> <span class="toc-text">Install NodeJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Install-Hexo-With-Administrator-Permission"><span class="toc-number">1.3.</span> <span class="toc-text">Install Hexo (With Administrator Permission)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-Hexo"><span class="toc-number">2.</span> <span class="toc-text">Start Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-with-GitHub"><span class="toc-number">3.</span> <span class="toc-text">Link with GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-New-GitHub-Repository"><span class="toc-number">3.1.</span> <span class="toc-text">Create a New GitHub Repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Config-Hexo"><span class="toc-number">3.2.</span> <span class="toc-text">Config Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA-Key-Pair-Generation"><span class="toc-number">3.3.</span> <span class="toc-text">RSA Key Pair Generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-Hexo"><span class="toc-number">3.4.</span> <span class="toc-text">Deploy Hexo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link-Your-Domain"><span class="toc-number">4.</span> <span class="toc-text">Link Your Domain</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annex"><span class="toc-number">5.</span> <span class="toc-text">Annex</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Theme-Yelee"><span class="toc-number">5.1.</span> <span class="toc-text">Theme: Yelee</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugin-Hexo-generator-feed"><span class="toc-number">5.2.</span> <span class="toc-text">Plugin: Hexo-generator-feed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugin-Hexo-generator-sitemap"><span class="toc-number">5.3.</span> <span class="toc-text">Plugin: Hexo-generator-sitemap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li></ol>
 </div>
 <style>
@@ -435,10 +436,10 @@
     }
 </style>
 
-<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 <script>
-    var valueHide = "Hide";
-    var valueShow = "Show";
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
     if ($(".left-col").is(":hidden")) {
         $("#tocButton").attr("value", valueShow);
@@ -517,15 +518,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/04/香港记忆/" title="Pre: 香港记忆">
+            <a href="/2016/03/04/香港记忆/" title="上一篇: 香港记忆">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2015/12/15/hello-world/" title="Next: Hello World">
+            <a href="/2015/12/15/hello-world/" title="下一篇: Hello World">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -545,17 +546,17 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2015-2016 Lyndon Li
+                2015-2017 Lyndon Li
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >Site Visitors: 
+                        <span id="site-visit" >本站到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -565,7 +566,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit">Page Hits: 
+                        <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
@@ -611,9 +612,9 @@ ga('send', 'pageview');
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>

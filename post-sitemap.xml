@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blog.lyndonli.com/2017/07/16/%E7%99%BB%E9%A1%B6%E5%AF%8C%E5%A3%AB%E5%B1%B1/</loc>
+        <lastmod>2017-07-16T07:55:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.lyndonli.com/2016/07/18/Hot-Swapping-Java-Class-File-During-Runtime/</loc>
         <lastmod>2016-07-18T14:07:34.000Z</lastmod>
         <changefreq>weekly</changefreq>

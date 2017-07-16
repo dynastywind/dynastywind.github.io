@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>http://blog.lyndonli.com/tags/%E5%9B%9E%E5%BF%86/</loc>
-        <lastmod>2016-03-04T14:57:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blog.lyndonli.com/tags/Alibaba-Tair/</loc>
         <lastmod>2016-05-28T12:54:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -53,6 +46,27 @@
     <url>
         <loc>http://blog.lyndonli.com/tags/Class-Loader/</loc>
         <lastmod>2016-07-18T14:07:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.lyndonli.com/tags/%E5%AF%8C%E5%A3%AB%E5%B1%B1/</loc>
+        <lastmod>2017-07-16T07:55:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.lyndonli.com/tags/%E6%97%A5%E6%9C%AC/</loc>
+        <lastmod>2017-07-16T07:55:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blog.lyndonli.com/tags/%E5%9B%9E%E5%BF%86/</loc>
+        <lastmod>2017-07-16T07:55:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

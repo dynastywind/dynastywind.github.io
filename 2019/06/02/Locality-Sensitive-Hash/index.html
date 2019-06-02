@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Dynastywind">
 <meta property="og:description" content="大智若愚，大巧若拙。—— 《道德经》">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-02T14:12:58.704Z">
+<meta property="og:updated_time" content="2019-06-02T14:28:00.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Locality Sensitive Hash浅析">
 <meta name="twitter:description" content="大智若愚，大巧若拙。—— 《道德经》">
@@ -332,7 +332,7 @@
 <p>余弦距离：<br>$$sim(\mathbf{x}, \mathbf{y}) = \frac{\mathbf{x} \cdot \mathbf{y}}{||\mathbf{x}|| \cdot ||\mathbf{y}||}$$</p>
 <p>闵可夫斯基距离：<br>$$sim(v_1, v_2) = \sqrt[p]{|v_{11} - v_{21}|^p + |v_{12} - v_{22}|^p + … + |v_{1n} - v_{2n}|^p}$$</p>
 <p>特别的，当p=1时，闵可夫斯基距离即为<strong>曼哈顿距离</strong>；当p=2时，闵可夫斯基距离即为<strong>欧几里得距离</strong>；当p趋于无穷大时，闵可夫斯基距离即为<strong>切比雪夫距离</strong>。</p>
-<p>上述距离函数均满足距离度量函数的普遍特征，即<br>$$d(x, y) \geq 0$$<br>$$d(x, y) = 0 \quad 当且仅当x=y时成立$$<br>$$d(x, y) = d(y, x) \quad 对称性$$<br>$$d(x, y) \leq d(x, z) + d(y, z) \quad 三角不等式$$</p>
+<p>上述相似度计算方法从距离角度来看均满足距离度量函数的普遍特征（相似度需要转换成距离），即<br>$$d(x, y) \geq 0$$<br>$$d(x, y) = 0 \quad 当且仅当x=y时成立$$<br>$$d(x, y) = d(y, x) \quad 对称性$$<br>$$d(x, y) \leq d(x, z) + d(y, z) \quad 三角不等式$$</p>
 <h2 id="位置敏感哈希"><a href="#位置敏感哈希" class="headerlink" title="位置敏感哈希"></a>位置敏感哈希</h2><p>有了距离度量方法之后，就可以设计一个哈希函数，将空间上相邻的点映射到相同的值或空间中去。如何设计这种函数呢？先来看几个重要的数学概念和结论。</p>
 <h3 id="p稳定分布"><a href="#p稳定分布" class="headerlink" title="p稳定分布"></a>p稳定分布</h3><p>$$若\exists p \geq 0, 有n个服从实数集\Bbb{R}上的分布\mathbf{D}的变量X_i(n&gt;0, 1 \leq i \leq n), v \in \Bbb{R}$$<br>$$如果随机变量\sum_{i=1}^n{v_iX_i}与(\sum_{i=1}^n{|v_i|^p)^\frac{1}{p}X}同分布，则\mathbf{D}为一个p稳定分布$$</p>
 <p>因此，针对两个特征向量v1和v2，如果有一个n维的随机向量X，X中的每一维均独立地从相同的p稳定分布中随机产生，那么就有</p>
@@ -368,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2019/06/02/Locality-Sensitive-Hash/">Locality Sensitive Hash浅析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
         <p><span>发布时间:</span>2019-06-02, 21:38:34</p>
-        <p><span>最后更新:</span>2019-06-02, 22:12:58</p>
+        <p><span>最后更新:</span>2019-06-02, 22:28:00</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/02/Locality-Sensitive-Hash/" title="Locality Sensitive Hash浅析">http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

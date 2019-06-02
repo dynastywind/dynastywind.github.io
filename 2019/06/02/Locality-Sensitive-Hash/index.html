@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Dynastywind">
 <meta property="og:description" content="大智若愚，大巧若拙。—— 《道德经》">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-02T14:00:59.534Z">
+<meta property="og:updated_time" content="2019-06-02T14:12:58.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Locality Sensitive Hash浅析">
 <meta name="twitter:description" content="大智若愚，大巧若拙。—— 《道德经》">
@@ -340,7 +340,7 @@
 <p>两个向量同分布意味着二者是线性相关的，因此这里就可以用av来近似表示v的p阶范数，从而能够使用点乘运算av将特征向量v从高维空间映射到实数集空间（一维），实现降维。</p>
 <p>已知并且常用的p稳定分布包括：<br>$$柯西分布(p=1): \quad f(x; x_0, \gamma) = \frac{1}{\pi}[\frac{\gamma}{(x-x_0)^2+\gamma^2}]$$<br>$$高斯分布(p=2): \quad f(x) = \frac{1}{\sqrt{2 \pi}\sigma}exp(-\frac{(x-\mu)^2}{2\sigma^2})$$</p>
 <p>如果我们取p=2，就可以用一个每一维数值均满足高斯分布的向量与特征向量之差的点积来近似模拟特征向量之间在高维空间的欧几里得距离。</p>
-<h3 id="设计哈希函数"><a href="#设计哈希函数" class="headerlink" title="设计哈希函数"></a>设计哈希函数</h3><p>在上述结论的基础上，我们将实数轴做r等分，并对每一段进行标号，av落到哪个区间，我们就把这个区间号作为映射结果进行返回。于是，LSH可以表示为如下形式：<br>$$h_{\vec{a}, b}(\vec{v}): \Bbb{R^d} \to \Bbb{N}$$<br>$$h_{\vec{a}, b}(\vec{v}) = \lfloor \frac{\vec{a} \cdot \vec{v} + b}{r} \rfloor, \quad b \in [0, r]$$</p>
+<h3 id="设计哈希函数"><a href="#设计哈希函数" class="headerlink" title="设计哈希函数"></a>设计哈希函数</h3><p>在上述结论的基础上，我们将实数轴做等分处理，每段长为r，并对每一段进行标号，av落到哪个区间，我们就把这个区间号作为映射结果进行返回。于是，LSH可以表示为如下形式：<br>$$h_{\vec{a}, b}(\vec{v}): \Bbb{R^d} \to \Bbb{N}$$<br>$$h_{\vec{a}, b}(\vec{v}) = \lfloor \frac{\vec{a} \cdot \vec{v} + b}{r} \rfloor, \quad b \in [0, r]$$</p>
 <p>上式中a是一个确定的d维向量，每一维数据均从p稳定分布中产生，b为一个随机噪音，r为分段后每段的长度。<br>那么，两个点被映射成同一个哈希值的概率可以借助p稳定分布的概率密度函数来表示成：<br>$$Pr_{\vec{a},b}[h_{\vec{a}, b}(\vec{v_1}) = h_{\vec{a}, b}(\vec{v_2})] = \int_0^r{\frac{1}{c}f_p(\frac{t}{c})(1-\frac{t}{r})}{\rm d}t$$<br>$$其中 \quad c = ||\vec{v_1} - \vec{v_2}||_p, \  f_p(x)为p稳定分布的概率密度函数$$</p>
 <p>由此可见，随着v1与v2之间距离的增大，哈希结果的相似概率随之减小，因此我们说上述函数h是距离敏感的，即h满足如下条件：<br>$$如果d(\vec{v_1}, \vec{v_2}) &lt; d_1, \quad Pr[h(\vec{v_1})=h(\vec{v_2})] \geq p_1$$<br>$$如果d(\vec{v_1}, \vec{v_2}) &gt; d_2, \quad Pr[h(\vec{v_1})=h(\vec{v_2})] \leq p_2$$</p>
 <p>也就是说，当两个点足够相近时，使用上述函数映射得到相同的结果的概率足够大；当两个点足够相异时，使用上述函数映射得到相同结果的概率足够小。</p>
@@ -368,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2019/06/02/Locality-Sensitive-Hash/">Locality Sensitive Hash浅析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
         <p><span>发布时间:</span>2019-06-02, 21:38:34</p>
-        <p><span>最后更新:</span>2019-06-02, 22:00:59</p>
+        <p><span>最后更新:</span>2019-06-02, 22:12:58</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/02/Locality-Sensitive-Hash/" title="Locality Sensitive Hash浅析">http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

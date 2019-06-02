@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Dynastywind">
 <meta property="og:description" content="大智若愚，大巧若拙。—— 《道德经》">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-02T13:38:34.402Z">
+<meta property="og:updated_time" content="2019-06-02T14:00:59.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Locality Sensitive Hash浅析">
 <meta name="twitter:description" content="大智若愚，大巧若拙。—— 《道德经》">
@@ -347,7 +347,7 @@
 <h3 id="概率调节"><a href="#概率调节" class="headerlink" title="概率调节"></a>概率调节</h3><p>既然是概率保证，也就意味着仍然有一定的可能使得两个不相似的点被映射成相同的值（伪正例），或者相似的点被哈希成不同的哈希值（伪反例）。</p>
 <p>为解决伪正例问题，可以构建一个<strong>LSH与函数组</strong>，每个函数之间相互独立，计算同一个特征的多个哈希值，只有当这些哈希值均相同时才认为特征相似。</p>
 <p>为解决伪反例问题，可以构建一个<strong>LSH或函数组</strong>，每个函数之间相互独立，计算同一个特征的多个哈希值，该组函数中若有一个返回相同的哈希值，则认为特征相似。</p>
-<p>结合上面两个方案，可以得到一个综合方案，同时满足<strong>与函数组之间的或判断</strong>的才认为特征相似。假设与函数组中有x个LSH函数，或函数组中有y个LSH函数，一组特征的相似概率为p，则该组判断中共有xy个LSH函数，那么对该组特征进行组合哈希后的相似概率为<br>$$1 - (1 - p^x)^y, \quad 0 \leq p \leq 1$$<br>由此可见，当x越大时，相似概率越小；当y越大时，相似概率越大。x与y作为LSH函数组合的超参数，可以根据实际情况进行调节。</p>
+<p>结合上面两个方案，可以得到一个综合方案，同时满足<strong>与函数组之间的或判断</strong>的才认为特征相似。假设与函数组中有x个LSH函数，或函数组中有y个LSH与函数组，且一组特征的相似概率为p，则该组判断中共有xy个LSH函数，那么对该组特征进行组合哈希后的相似概率为<br>$$1 - (1 - p^x)^y, \quad 0 \leq p \leq 1$$<br>由此可见，当x越大时，相似概率越小；当y越大时，相似概率越大。x与y作为LSH函数组合的超参数，可以根据实际情况进行调节。</p>
 <h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><p>LSH在进行高维数据之间的相似性检查时具有如下的优势：</p>
 <ul>
 <li>哈希效率高于线性对比</li>
@@ -368,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2019/06/02/Locality-Sensitive-Hash/">Locality Sensitive Hash浅析</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
         <p><span>发布时间:</span>2019-06-02, 21:38:34</p>
-        <p><span>最后更新:</span>2019-06-02, 21:38:34</p>
+        <p><span>最后更新:</span>2019-06-02, 22:00:59</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/06/02/Locality-Sensitive-Hash/" title="Locality Sensitive Hash浅析">http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2019/06/02/Locality-Sensitive-Hash/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

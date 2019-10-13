@@ -27,7 +27,7 @@
 <meta property="og:image" content="http://blog.lyndonli.com/2019/10/13/Neural-Network/perceptron.png">
 <meta property="og:image" content="http://blog.lyndonli.com/2019/10/13/Neural-Network/ann.png">
 <meta property="og:image" content="http://blog.lyndonli.com/2019/10/13/Neural-Network/dnn.png">
-<meta property="og:updated_time" content="2019-10-13T07:57:24.778Z">
+<meta property="og:updated_time" content="2019-10-13T08:36:35.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前馈神经网络">
 <meta name="twitter:description" content="人法地，地法天，天法道，道法自然。 – 《道德经》">
@@ -403,7 +403,7 @@
 <p>$$\frac{\partial e_n}{\partial w_{ij}^{(l)}} = \frac{\partial e_n}{\partial s_{j}^{(l)}} \cdot \frac{\partial s_j^{(l)}}{\partial w_{ij}^{(l)}} = \delta_j^{(l)} \cdot (x_i^{(l-1)})$$</p>
 <p>$\delta_1^{(L)}$已经在上一节获取到了，那么为了获取剩下的所有$\delta$值，我们要来看一下权重的传递关系：</p>
 <p>$$s_j^{(l)} \stackrel{f}{\Longrightarrow} x_j^{(l)} \stackrel{w_{jk}^{(l)}}{\Longrightarrow} s^{(l+1)} \Longrightarrow \cdots \Longrightarrow e_n$$</p>
-<p>第l层的分数经过激活函数转换后得到本层的输入，再与本层的权重进行线性组合得到下一层的分数，以此演进，直到最后输出。因此，一般的$delta$的计算也可以通过使用<strong>链式法则</strong>得到：</p>
+<p>第l层的分数经过激活函数转换后得到本层的输入，再与本层的权重进行线性组合得到下一层的分数，以此演进，直到最后输出。因此，一般的$\delta$的计算也可以通过使用<strong>链式法则</strong>得到：</p>
 <p>$$\delta_j^{(l)} = \frac{\partial e_n}{\partial s_j^{(l)}} = \sum_{k=1}^{d^{(l+1)}} \frac{\partial e_n}{\partial s_k^{(l+1)}} \cdot \frac{\partial s_k^{(l+1)}}{\partial x_j^{(l)}} \cdot \frac{\partial x_j^{(l)}}{\partial s_j^{(l)}} = \sum_{k=1}^{d^{(l+1)}} (\delta_k^{(l+1)}) \cdot (w_{jk}^{(l)}) \cdot (f’(s_j^{(l)}))$$</p>
 <p>所以，从输出层的$\delta$开始，我们可以通过层层回溯计算出每一层的梯度值。有了梯度之后，新的权重可以更新如下（$\eta$为学习步长）：</p>
 <p>$$w_{ij}^{(l)} \leftarrow w_{ij}^{(l)} - \eta x_i^{(l-1)}\delta_j^{(l)}$$</p>
@@ -427,7 +427,7 @@
         <p><span>本文标题:</span><a href="/2019/10/13/Neural-Network/">前馈神经网络</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Lyndon Li</a></p>
         <p><span>发布时间:</span>2019-10-13, 15:57:24</p>
-        <p><span>最后更新:</span>2019-10-13, 15:57:24</p>
+        <p><span>最后更新:</span>2019-10-13, 16:36:35</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/10/13/Neural-Network/" title="前馈神经网络">http://blog.lyndonli.com/2019/10/13/Neural-Network/</a>
             <span class="copy-path" data-clipboard-text="原文: http://blog.lyndonli.com/2019/10/13/Neural-Network/　　作者: Lyndon Li" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>变分自编码器</title>
+      <link href="/2019/12/15/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/"/>
+      <url>/2019/12/15/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>道在不可见，用在不可知。 <em>– 《韩非子》</em></p></blockquote><a id="more"></a><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p><a href="https://arxiv.org/pdf/1312.6114.pdf" target="_blank" rel="noopener">变分自编码器</a>（下称VAE）是一种类似自编码器（Autoencoder，下称AE）的神经网络结构，存在encoder和decoder部分，前者用于计算输入变量的隐变量分布，后者用于将隐变量还原为输入变量。但是和普通的AE不同的是，VAE经过encode过程之后得到的是输入变量的隐变量分布，而不是AE中的隐变量本身。同样的，decoder的输入也是通过一个采样过程来实现的，并不是简单的一个隐变量输入。因此，VAE相比于AE有更好的鲁棒性，抗噪能力更强，除了常规的图像处理任务以外，VAE也能胜任时序数据处理任务，比如异常点检测等。</p><h1 id="从无到有"><a href="#从无到有" class="headerlink" title="从无到有"></a>从无到有</h1><p>现在来看一下VAE思想是如何产生的。我们希望有一个模型，将输入变量经过这个模型转换后输出的结果是原始数据真实分布中产生的，没有原始输入的噪声。现在假设我们有一批数据样本$\{X_1, X_2, …, X_n\}$，其总体记为X，如果我们能直接从这些样本中得到X的分布p(X)，那就可以直接使用p(X)来采样获得所有可能的X了。然而，现实总是很残酷的，X的真实分布往往是很难获取的，所以我们想通过曲线迂回的方式来达到我们的目的。既然X本身的分布不好获取，那是否能够通过一个已知的分布来间接获取X的分布呢？这就是VAE模型的起点。现在我们使用一个服从标准正态分布的变量Z，通过Z来计算X的分布可以利用下式得到：<br>$$p(X) = \sum_{Z}p(X|Z)p(Z)$$<br>由于Z服从标准正态分布，即$p(Z)=N(0, 1)$，因此我们可以从标准正态分布中采样一个Z，然后根据这个Z来计算一个X，进而解决之前的问题。所以我们构建一个特殊的AE模型，在这个模型中，我们希望encoder能够生成输入变量X的隐变量Z的分布，而不是隐变量本身。由于最终要将生成结果和输入数据一一对比，因此encoder的生成结果是<strong>输入变量特定</strong>的分布，即encoder的生成结果是一个Z的后验概率分布$p(Z|X_k)$，而不是直接利用$p(Z)$来还原，否则将无法确定生成的结果对应于哪一个原始输入。而$p(Z|X_k)$是一个正态分布，由于一个正态分布由均值和方差唯一确定，我们无法直接获取这两个值，转而借由神经网络来进行拟合。所以VAE的encoder有两个，一个用于生成均值，一个用于生成方差，通过这两个结果来构建一个正态分布，再通过这个分布来采样得到隐变量Z，进而经过decoder生成一个X。下面来看一下VAE的训练目标。</p><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>VAE构建了两个神经网络：$\mu_k=f_1(X_k)$用于计算$X_k$的均值，$log \sigma_k^2=f_2(X_k)$用于计算$X_k$的方差（拟合log函数而非方差本身能够避免引入激活函数限定值域范围），通过这两个函数我们唯一确定一个正态分布，通过采样获得对应于$X_k$的$Z_k$，接着使用decoder得到$\hat{X_k}=g(Z_k)$，最小化$X_k$与$\hat{X_k}$的差异$D(X_k, \hat{X_k})^2$即是我们的目标。</p><p>然而，直接这样训练存在着问题，因为$Z_k$是通过采样得到的，每一次采样都存在噪声（由方差引入），所以模型的训练结果会尽量让这个方差变为0来完美拟合均值，最终结果就是VAE退化成了一个普通的AE。为了解决这个问题，VAE要求所有$p(Z|X_k)$的分布均向标准正态分布看齐，而不是向方差为0看齐，根据定义：</p><p>$$p(Z)=\sum_{X}p(Z|X)p(X)=\sum_{X}N(0,1)p(X)=N(0,1)\sum_{X}p(X)=N(0,1)$$</p><p>于是我们就有了一个服从标准正态分布的Z，可以从这个分布中进行采样生成数据同时避免0噪声了。</p><p>但是如何要求$p(Z|X)$都向标准正态分布看齐呢？这里引入KL散度来衡量两个分布之间的距离并使之最小化：</p><p>$$KL(N(\mu, \sigma^2)||N(0,1))\\<br>=\int\frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/2\sigma^2}(log\frac{e^{-(x-u)^2/2\sigma^2}/\sqrt{2\pi\sigma^2}}{e^{-x^2/2}/\sqrt{2\pi}})dx\\<br>=\int\frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/2\sigma^2}log(\frac{1}{\sqrt{\sigma^2}}exp(\frac{x^2-(x-\mu)^2/\sigma^2}{2}))dx\\<br>=\frac{1}{2}\int\frac{1}{\sqrt{2\pi\sigma^2}}e^{-(x-\mu)^2/2\sigma^2}[-log\sigma^2+x^2-(x-\mu)^2/\sigma^2]dx\\<br>=\frac{1}{2}(-log\sigma^2+\mu^2+\sigma^2-1)$$</p><p>（上式倒数第二行中括号中的项结合积分，第一项就是$-log\sigma^2$与概率密度积分之积，第二项为正态分布二阶矩，第三项为两个方差之商）</p><h2 id="再参数化（reparameterization）"><a href="#再参数化（reparameterization）" class="headerlink" title="再参数化（reparameterization）"></a>再参数化（reparameterization）</h2><p>由于$Z_k$是通过$p(Z|X_k)$采样得到的，因此该过程在数学上是不可导的，为了能够使用梯度下降方法进行训练，我们利用再参数化技巧利用采样结果进行求导，而不是采样动作本身。由于$p(Z|X_k)$服从正态分布，因此可以有下式成立：</p><p>$$\int\frac{1}{\sqrt{2\pi\sigma^2}}exp(-\frac{(z-\mu)^2}{2\sigma^2})dz\\<br>=\int\frac{1}{\sqrt{2\pi}}exp[-\frac{1}{2}(\frac{z-\mu}{\sigma})^2]d(\frac{z-\mu}{\sigma})$$</p><p>因此$\epsilon=(z-\mu)/\sigma$是服从标准正态分布的，我们使用标准正态分布中的变量$\epsilon$经过变换$Z=\epsilon*\sigma+\mu$来得到Z。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>有别于普通的AE，VAE通过训练两个encoder来生成一个隐变量分布，并通过采样的方式获得隐变量，第一个encoder用于生成均值，由于采样过程引入了噪声，因此训练出来的decoder能够有比较好的抗噪能力。同时KL散度的引入正则化了均值encoder，使得均值向0靠拢而不是去拟合噪声。第二个encoder用于生成方差，即数据噪声，动态调节噪声强度。当decoder还未训练成熟时，方差encoder会适当降低噪声，让重构误差D下降，KL散度上升；而当decoder训练得很好时，方差encoder就会提高噪声，让重构误差D回升，KL散度下降。由此可见，重构误差希望没有噪声，而KL散度希望引入噪声，两者互相对立并一同走向统一，有点GAN的味道，只不过VAE里矛盾双方是共同进化的。至于为什么VAE叫变分自编码器，是因为训练过程中引入了KL散度，该函数是一个泛函，求泛函的极值要使用变分法，但是这里直接利用了正态分布的一些性质，从而避免使用复杂的变分法求解问题。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> machine learning </category>
+          
+          <category> AI </category>
+          
+          <category> computer science </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vae </tag>
+            
+            <tag> variational autoencoder </tag>
+            
+            <tag> 变分自编码器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前馈神经网络</title>
       <link href="/2019/10/13/Neural-Network/"/>
       <url>/2019/10/13/Neural-Network/</url>
